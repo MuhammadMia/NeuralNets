@@ -3,45 +3,11 @@
 
 enum activationFunction
 {
-    linear,
-    sigmoid,
-    tanh,
-    relu,
-    leakyRelu
-};
-
-struct node
-{
-    float input;
-    float output;
-    float bias;
-    activationFunction actFunc;
-
-    void activate()
-    {
-        switch (actFunc)
-        {
-        case linear:
-            output = linearActivation(input);
-            break;
-
-        case sigmoid:
-            output = sigmoidActivation(input);
-            break;
-
-        case tanh:
-            output = tanhActivation(input);
-            break;
-
-        case relu:
-            output = reluActivation(input);
-            break;
-
-        case leakyRelu:
-            output = leakyReluActivation(input);
-            break;
-        }
-    }
+    linear = 0,
+    sigmoid = 1,
+    tan_h = 2,
+    relu = 3,
+    leakyRelu = 4
 };
 
 float linearActivation(float x)
@@ -78,3 +44,37 @@ float leakyReluActivation(float x)
     y = x;
     return y;
 }
+
+struct node
+{
+    float input;
+    float output;
+    float bias;
+    activationFunction actFunc;
+
+    void activate()
+    {
+        switch (actFunc)
+        {
+        case 0:
+            output = linearActivation(input);
+            break;
+
+        case 1:
+            output = sigmoidActivation(input);
+            break;
+
+        case 2:
+            output = tanhActivation(input);
+            break;
+
+        case 3:
+            output = reluActivation(input);
+            break;
+
+        case 4:
+            output = leakyReluActivation(input);
+            break;
+        }
+    }
+};
